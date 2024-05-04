@@ -14,6 +14,8 @@
 # define SO_LONG_H
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
+#define MAP_WIDTH 11 
+#define MAP_HEIGHT 11 
 # endif
 # include <stdlib.h>
 # include <unistd.h>
@@ -34,5 +36,6 @@ char	*ft_strchr(char *str, int c);
 char	*ft_strjoin(char *s1, char *s2);
 char	*read_line(char *storage, int fd);
 size_t	ft_strlen(char *str);
+//char    **open_map(char *argv, int *rows, int *cols);
 
 # endif
