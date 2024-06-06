@@ -17,13 +17,41 @@
 #define MAP_WIDTH 11 
 #define MAP_HEIGHT 11 
 # endif
-# include <stdlib.h>
 # include <unistd.h>
+# include <stddef.h>
+# include <stdlib.h>
 # include <stdio.h>
+# include <limits.h>
+# include <stdarg.h>
 # include <fcntl.h>
 # include <errno.h>
 # include <string.h>
 //# include "./MLX42/include/MLX42/MLX42.h
+
+typedef struct s_image
+{
+    mlx_image_t     *floor;
+    mlx_image_t     *wall;
+    mlx_image_t     *hero;
+    mlx_image_t     *coin;
+    mlx_image_t     *door;
+    mlx_image_t     *exit;
+}   t_image;
+
+typedef struct  s_game
+{
+    char        **map;
+    int             line;
+    int             cols;
+    int             coin;
+    int             playerx;
+    int             playery;
+    int             doorx;
+    int             doory;
+    int             count;
+    mlx_image_t     *mlx;
+    t_image         *image;   
+}   t_game;
 
 int		countx(char *argv);
 int		county(char **map);
@@ -36,6 +64,5 @@ char	*ft_strchr(char *str, int c);
 char	*ft_strjoin(char *s1, char *s2);
 char	*read_line(char *storage, int fd);
 size_t	ft_strlen(char *str);
-//char    **open_map(char *argv, int *rows, int *cols);
 
 # endif
