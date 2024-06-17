@@ -26,7 +26,7 @@
 # include <fcntl.h>
 # include <errno.h>
 # include <string.h>
-//# include "./MLX42/include/MLX42/MLX42.h
+# include "./MLX42/include/MLX42/MLX42.h
 
 typedef struct s_image
 {
@@ -74,5 +74,21 @@ int check_hd(t_game *game);
 int check_coin(t_game *game);
 int check_char(t_game *game);
 int check_map(t_game *game);
+char	*ft_strchr(char *str, int c);
+void	*ft_calloc(size_t num, size_t size);
+size_t	ft_strlen(char *str);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_free(char **s);
+char	*new_storage(char *s, char *line);
+char	*new_line(char *s);
+char	*read_line(char *s, int fd);
+char	*get_next_line(int fd);
+int print(char c, va_list args);
+int	ft_printf(const char *format, ...);
+char *tipe_finder(char c);
+int	putstr_c(char *s);
+int	putchar_c(char c);
+static int	write_nbr(int n, int count);
+int	putnbr_c(int n);
 
 # endif
