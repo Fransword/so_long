@@ -95,8 +95,8 @@ int main(int argc, char **argv)
     if (!game)
         return (0);
     game->count = 0;
-    game->lines = countx(argv[1]);
-    game->map = open_map(argv[1], game->line);
+    game->line = countx(argv[1]);
+    game->map = open_map(argv[1], game->line game->cols);
     game->cols = county(game->map, game->line);
     set_xy(game);
     check_map(game);
