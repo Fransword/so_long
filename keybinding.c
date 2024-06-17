@@ -13,16 +13,118 @@
 #include "so_long.h"
 
 void press_w(t_game *game)
-{}
+{
+	if (game->map[game->playery - 1][game->playerx] != '1')
+	{
+		if (game->map[game->playery][game->playerx] == 'E')
+			mlx_image_to_window(game->mlx, game->image->exit,
+				game->playerx * PIXEL, game->playery * PIXEL);
+		else
+			mlx_image_to_window(game->mlx, game->image->floor,
+				game->playerx * PIXEL, game->playery * PIXEL);
+		game->playery --;
+		mlx_image_to_window(game->mlx, game->image->player,
+			game->playerx * PIXEL, game->playery * PIXEL);
+		game->count++;
+		ft_printf("count: %i\n", game->count);
+		if (game->map[game->playery][game->playerx] == 'C')
+		{
+			game->coin--;
+			game->map[game->playery][game->playerx] = '0';
+			if (game->coin == 0)
+				mlx_image_to_window(game->mlx, game->image->exit,
+					game->ex_y * PIXEL, game->ex_x * PIXEL);
+		}
+		if (game->map[game->playery][game->playerx] == 'E' && game->coin == 0)
+			end_game(game);
+	}
+}
 
 void press_a(t_game *game)
-{}
+{
+	if (game->map[game->playery][game->playerx - 1] != '1')
+	{
+		if (game->map[game->playery][game->playerx - 1] != '1')
+	{
+		if (game->map[game->playery][game->playerx] == 'E')
+			mlx_image_to_window(game->mlx, game->image->exit,
+				game->playerx * PIXEL, game->playery * PIXEL);
+		else
+			mlx_image_to_window(game->mlx, game->image->floor,
+				game->playerx * PIXEL, game->playery * PIXEL);
+		game->playerx --;
+		mlx_image_to_window(game->mlx, game->image->player,
+			game->playerx * PIXEL, game->playery * PIXEL);
+		game->count++;
+		ft_printf("count: %i\n", game->count);
+		if (game->map[game->playery][game->playerx] == 'C')
+		{
+			game->coin--;
+			game->map[game->playery][game->playerx] = '0';
+			if (game->coin == 0)
+				mlx_image_to_window(game->mlx, game->image->exit,
+					game->ex_y * PIXEL, game->ex_x * PIXEL);
+		}
+		if (game->map[game->playery][game->playerx] == 'E' && game->coin == 0)
+			end_game(game);
+	}
+}
 
 void press_s(t_game *game)
-{}
+{
+	if (game->map[game->playery + 1][game->playerx] != '1')
+	{
+		if (game->map[game->playery][game->playerx] == 'E')
+			mlx_image_to_window(game->mlx, game->image->exit,
+				game->playerx * PIXEL, game->playery * PIXEL);
+		else
+			mlx_image_to_window(game->mlx, game->image->floor,
+				game->playerx * PIXEL, game->playery * PIXEL);
+		game->playery ++;
+		mlx_image_to_window(game->mlx, game->image->player,
+			game->playerx * PIXEL, game->playery * PIXEL);
+		game->count++;
+		ft_printf("count: %i\n", game->count);
+		if (game->map[game->playery][game->playerx] == 'C')
+		{
+			game->coin--;
+			game->map[game->playery][game->playerx] = '0';
+			if (game->coin == 0)
+				mlx_image_to_window(game->mlx, game->image->exit,
+					game->ex_y * PIXEL, game->ex_x * PIXEL);
+		}
+		if (game->map[game->playery][game->playerx] == 'E' && game->coin == 0)
+			end_game(game);
+	}
+}
 
 void press_d(t_game *game)
-{}
+{
+	if (game->map[game->playery][game->playerx + 1] != '1')
+	{
+		if (game->map[game->playery][game->playerx] == 'E')
+			mlx_image_to_window(game->mlx, game->image->exit,
+				game->playerx * PIXEL, game->playery * PIXEL);
+		else
+			mlx_image_to_window(game->mlx, game->image->floor,
+				game->playerx * PIXEL, game->playery * PIXEL);
+		game->playerx ++;
+		mlx_image_to_window(game->mlx, game->image->player,
+			game->playerx * PIXEL, game->playery * PIXEL);
+		game->count++;
+		ft_printf("count: %i\n", game->count);
+		if (game->map[game->playery][game->playerx] == 'C')
+		{
+			game->coin--;
+			game->map[game->playery][game->playerx] = '0';
+			if (game->coin == 0)
+				mlx_image_to_window(game->mlx, game->image->finish,
+					game->ex_y * PIXEL, game->ex_x * PIXEL);
+		}
+		if (game->map[game->playery][game->playerx] == 'E' && game->coin == 0)
+			end_game(game);
+	}
+}
 
 void keybinding(mlx_key_data_t keydata, void *param)
 {

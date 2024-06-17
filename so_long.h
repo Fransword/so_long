@@ -53,16 +53,26 @@ typedef struct  s_game
     t_image         *image;   
 }   t_game;
 
-int		countx(char *argv);
-int		county(char **map);
-int		main(int argc, char **argv);
-char	*get_next_line(int fd);
-char	*new_storage(char *storage, char *line);
-char	*ft_free(char **storage);
-void	*ft_calloc(size_t num, size_t size);
-char	*ft_strchr(char *str, int c);
-char	*ft_strjoin(char *s1, char *s2);
-char	*read_line(char *storage, int fd);
-size_t	ft_strlen(char *str);
+void    error(void);
+int	countx(char *argv);
+int	county(char **map, int lines);
+char    **open_map(char *argv, int *rows, int *cols);
+static void char_to_image(t_game *game, int i, int j);
+void print_map(t_game *game);
+static void fill(char **map, int line, int cols);
+int windwalk(t_game *game);
+void freemap(char **map);
+void end(t_game *game);
+void (set_images)(t_game *game);
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int strlen2(char *argv);
+void set_xy(t_game *game);
+char	*ft_strdup(const char *s1);
+char **cmap(t_game *game);
+int check_cols(t_game *game);
+int check_hd(t_game *game);
+int check_coin(t_game *game);
+int check_char(t_game *game);
+int check_map(t_game *game);
 
 # endif
