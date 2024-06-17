@@ -15,7 +15,8 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
 #define MAP_WIDTH 11 
-#define MAP_HEIGHT 11 
+#define MAP_WEIGHT 11
+#define PIXEL 64 
 # endif
 # include <unistd.h>
 # include <stddef.h>
@@ -26,7 +27,7 @@
 # include <fcntl.h>
 # include <errno.h>
 # include <string.h>
-# include "./MLX42/include/MLX42/MLX42.h
+# include "./MLX42/include/MLX42/MLX42.h"
 
 typedef struct s_image
 {
@@ -49,8 +50,8 @@ typedef struct  s_game
     int             doorx;
     int             doory;
     int             count;
-    mlx_image_t     *mlx;
-    t_image         *image;   
+    mlx_t       *mlx;
+    t_image     *image;   
 }   t_game;
 
 void    error(void);

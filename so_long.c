@@ -66,7 +66,6 @@ char    **open_map(char *argv, int *rows, int *cols)
     if (fd < 0)
         return (NULL);
     *rows = countx(argv);
-    *cols = county(NULL);
     map = (char **)malloc(sizeof(char *) * (*rows));
     if (!map)
         return (NULL);
@@ -82,6 +81,7 @@ char    **open_map(char *argv, int *rows, int *cols)
         i++;
     }
     close (fd);
+    *cols = county(map, *rows);
     return (map);
 }
 
@@ -106,7 +106,7 @@ int main(int argc, char **argv)
         return (0);
     set_image(game);
     map_print(game);
-    mlx_key_hook(game->mlx, &my_keyhook, game);
+    mlx_key_hook(game->mlx, &keybinding, game);
     mlx_loop(game->mlx);
     return (0);
 }
