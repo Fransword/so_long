@@ -16,7 +16,8 @@
 #  define BUFFER_SIZE 1
 #define MAP_WIDTH 11 
 #define MAP_WEIGHT 11
-#define PIXEL 64 
+# ifndef PIXEL
+#define PIXEL 64
 # endif
 # include <unistd.h>
 # include <stddef.h>
