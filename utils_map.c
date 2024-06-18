@@ -36,17 +36,17 @@ mlx_texture_t *set_img_exit(t_game *game)
 {
     mlx_texture_t *a_exit;
 
-    a_exit = mlx_load_png("./textures/exit.png")
+    a_exit = mlx_load_png("./textures/exit.png");
     if (!a_exit)
         error();
     game->image->exit = mlx_texture_to_image(game->mlx, a_exit);
     mlx_delete_texture(a_exit);
-    if (!game->game->exit)
+    if (!game->image->exit)
         error();
     return (a_exit);
 }
 
-void (set_images)(t_game *game)
+void set_images(t_game *game)
 {
     set_img_floor(game);
     set_img_cols(game);

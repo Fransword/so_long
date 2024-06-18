@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int print(char c, va_list args)
 {
@@ -18,11 +18,11 @@ int print(char c, va_list args)
 
     i = 0;
     if (c == 'c')
-        i = putchar_c(va_args(args, int));
+        i = putchar_c(va_arg(args, int));
     else if (c == 's')
-        i = putstr_c(va_args(args, char *));
+        i = putstr_c(va_arg(args, char *));
     else if (c == 'd' || c == 'i')
-        i = putnbr_c(va_args(args, int));
+        i = putnbr_c(va_arg(args, int));
     else if (c == '%')
         i = putchar_c('%');
     return (i);
@@ -42,7 +42,7 @@ int	ft_printf(const char *format, ...)
     {
         if (format[i] == '%' && tipe_finder(format[i + 1]))
         {
-            k = print(format[++i]. args)
+            k = print(format[++i], args);
             if (k < 0)
                 return (-1);
             j += k - 1;

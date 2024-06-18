@@ -12,13 +12,17 @@
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
-#define MAP_WIDTH 11 
-#define MAP_WEIGHT 11
-# ifndef PIXEL
-#define PIXEL 64
+
+
 # endif
+
+# define MAP_WIDTH 11 
+# define MAP_WEIGHT 11
+# define PIXEL 64
+
 # include <unistd.h>
 # include <stddef.h>
 # include <stdlib.h>
@@ -33,7 +37,7 @@
 typedef struct s_image
 {
     mlx_image_t     *floor;
-    mlx_image_t     *wall;
+    mlx_image_t     *cols;
     mlx_image_t     *hero;
     mlx_image_t     *coin;
     mlx_image_t     *door;
@@ -58,7 +62,7 @@ typedef struct  s_game
 void    error(void);
 int	countx(char *argv);
 int	county(char **map, int lines);
-char    **open_map(char *argv, int *rows, int *cols);
+char    **open_map(char *argv, int *line);
 static void char_to_image(t_game *game, int i, int j);
 void print_map(t_game *game);
 static void fill(char **map, int line, int cols);
@@ -92,5 +96,13 @@ int	putstr_c(char *s);
 int	putchar_c(char c);
 static int	write_nbr(int n, int count);
 int	putnbr_c(int n);
+void keybinding(mlx_key_data_t keydata, void *param);
+static void char_to_image(t_game *game, int i, int j);
+void print_map(t_game *game);
+mlx_texture_t   *set_img_floor(t_game *game);
+mlx_texture_t   *set_img_cols(t_game *game);
+mlx_texture_t   *set_img_door(t_game *game);
+mlx_texture_t   *set_img_coin(t_game *game);
+mlx_texture_t   *set_img_hero(t_game *game);
 
 # endif

@@ -16,7 +16,7 @@ static void char_to_image(t_game *game, int i, int j)
 {
     mlx_image_to_window(game->mlx, game->image->floor, j * PIXEL, i * PIXEL);
     if (game->map[i][j] == '1')
-        mlx_image_to_window(game->mlx, game->image->wall, j * PIXEL, i * PIXEL);
+        mlx_image_to_window(game->mlx, game->image->cols, j * PIXEL, i * PIXEL);
     if (game->map[i][j] == 'C')
         mlx_image_to_window(game->mlx, game->image->coin, j * PIXEL, i * PIXEL);
     if (game->map[i][j] == 'E')
@@ -35,7 +35,7 @@ void print_map(t_game *game)
 
     i = 0;
     j = 0;
-    while (i < gam->line)
+    while (i < game->line)
     {
         j = 0;
         while (j < game->cols)
@@ -45,7 +45,7 @@ void print_map(t_game *game)
         }
         i++;
     }
-    mlx_image_to_window(game->mlx, game->image->hero, game->playerx * PIXEL, game->image->playery * PIXEL);
+    mlx_image_to_window(game->mlx, game->image->hero, game->playerx * PIXEL, game->playery * PIXEL);
 }
 
 static void fill(char **map, int line, int cols)

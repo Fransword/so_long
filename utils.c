@@ -76,7 +76,7 @@ char	*ft_strdup(const char *s1)
 
 	aux = (char *)s1;
 	i = 0;
-	n = ft_strlen(aux) + 1;
+	n = strlen2(aux) + 1;
 	if (!s1)
 		return (0);
 	ptr = (char *)malloc(sizeof (char) * n);
