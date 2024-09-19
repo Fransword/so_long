@@ -1,5 +1,5 @@
 NAME	:= so_long
-CFLAGS	:= -Wextra -Wall -Werror -Wunreachable-code
+CFLAGS	:= -g -Wextra -Wall -Werror -Wunreachable-code
 MLX_DIR	= ./MLX42
 MLX	:= $(MLX_DIR)/libmlx42.a
 HEADERS	:= -I$(MLX_DIR)

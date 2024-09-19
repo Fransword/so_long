@@ -12,36 +12,33 @@
 
 #include "so_long.h"
 
-int check_cols(t_game *game)
+int	check_cols(t_game *game)
 {
-	int  i;
+	int	i;
 
 	i = 0;
 	while (game->map[0][i] != '\n' && game->map[0][i] != '\0')
 	{
 		if (game->map[0][i] != '1' || game->map[game->line - 1][i] != '1')
-			error();
+			ft_error(game);
 		i++;
 	}
 	i = 0;
 	while (i < game->line - 1)
 	{
 		if (game->map[i][0] != '1' || game->map[i][game->cols - 1] != '1')
-		{
-			write (1, "3\n", 1);
-			error();
-		}
+			ft_error(game);
 		i++;
 	}
 	return (1);
 }
 
-int check_hd(t_game *game)
+int	check_hd(t_game *game)
 {
-	int countp;
-	int counte;
-	int i;
-	int j;
+	int	countp;
+	int	counte;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -61,15 +58,15 @@ int check_hd(t_game *game)
 		i++;
 	}
 	if (counte != 1 || countp != 1)
-		error();
+		ft_error(game);
 	return (1);
 }
 
-int check_coin(t_game *game)
+int	check_coin(t_game *game)
 {
-	int  i;
-	int  j;
-	int  count;
+	int	i;
+	int	j;
+	int	count;
 
 	i = 0;
 	j = 0;
@@ -86,52 +83,53 @@ int check_coin(t_game *game)
 		i++;
 	}
 	if (count <= 0)
-		error();
+		ft_error(game);
 	return (count);
 }
 
-int check_char(t_game *game)
+int	check_char(t_game *game)
 {
-	int  i;
-	int  j;
+	int	i;
+	int	j;
 
 	i = 0;
-	j = 0;
-	print_map(game);
-	while (game->map[i][j])
+	while (game->map[i] != '\0')
 	{
 		j = 0;
 		while (game->map[i][j] != '\n' && game->map[i][j] != '\0')
 		{
-			if (game->map[i][j] == '1' || game->map[i][j] == '0'
-				|| game->map[i][j] == 'E' || game->map[i][j] == 'C'
-				|| game->map[i][j] == 'P')
-				j++;
-			else
-				error();
+			if (game->map[i][j] != '0' && game->map[i][j] != '1'
+			&& game->map[i][j] != 'C'
+				&& game->map[i][j] != 'P' && game->map[i][j] != 'E')
+				ft_error(game);
+			j++;
 		}
 		i++;
 	}
 	return (1);
 }
-int check_map(t_game *game)
+
+int	check_map(t_game *game)
 {
 	check_char(game);
+	write (1, "1", 1);
 	check_cols(game);
+	write (1, "2", 1);
 	check_hd(game);
+	write (1, "3", 1);
 	game->coin = check_coin(game);
 	windwalk(game);
+	write (1, "4", 1);
 	return (1);
 }
 
-void printmap(t_game *game)
+void	printmap(t_game *game)
 {
-	int i = 0;
+	int	i = 0;
 
-		while(game->map[i])
-		{
-			write (1, "peto", 4);
-			printf("%s\n", game->map[i]);
-			i++;
-		}
+	while(game->map[i])
+	{
+		printf("%s\n", game->map[i]);
+		i++;
+	}
 }

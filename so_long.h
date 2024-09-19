@@ -59,12 +59,11 @@ typedef struct  s_game
     t_image     *image;   
 }   t_game;
 
-void    error(void);
+void    ft_error(t_game *game);
 int	countx(char *argv);
 int	county(char **map, int lines);
-char    **open_map(char *argv, int *line);
+char    **open_map(char *argv, int line);
 static void char_to_image(t_game *game, int i, int j);
-void print_map(t_game *game);
 static void fill(char **map, int line, int cols);
 int windwalk(t_game *game);
 void freemap(char **map);
@@ -78,7 +77,7 @@ char **cmap(t_game *game);
 int check_cols(t_game *game);
 int check_hd(t_game *game);
 int check_coin(t_game *game);
-int check_char(t_game *game);
+int	check_char(t_game *game);
 int check_map(t_game *game);
 char	*ft_strchr(char *str, int c);
 void	*ft_calloc(size_t num, size_t size);

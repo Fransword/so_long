@@ -26,45 +26,46 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
-int strlen2(char *argv)
-{
-    int     i;
-    
-    i = 0;
-    while(argv[i])
-    {
-        if (argv[i] == '\n')
-            return (i);
-        i++;
-    }
-    return (i);
-}
-void set_xy(t_game *game)
-{
-    int     i;
-    int     j;
 
-    i = 0;
-    j = 0;
-    while(game->map[i][j])
-    {
-        j = 0;
-        while (game->map[i][j] != '\n' && game->map[i][j] != '\0')
-        {
-            if (game->map[i][j] == 'E')
-            {
-                game->doorx = i;
-                game->doory = j;
-            }
-            if (game->map[i][j] == 'P')
-            {
-                game->playerx = i;
-                game->playery = j;
-            }
-            j++;
-        }
-        i++;
-    }
+int	strlen2(char *argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i])
+	{
+		if (argv[i] == '\n')
+			return (i);
+		i++;
+	}
+	return (i);
+}
+void	set_xy(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j] != '\n' && game->map[i][j] != '\0')
+		{
+			if (game->map[i][j] == 'E')
+			{
+				game->doorx = i;
+				game->doory = j;
+			}
+			if (game->map[i][j] == 'P')
+			{
+				game->playerx = i;
+				game->playery = j;
+			}
+			j++;
+		}
+		i++;
+	}
 }
 
 char	*ft_strdup(const char *s1)
@@ -91,18 +92,18 @@ char	*ft_strdup(const char *s1)
 	return (ptr);
 }
 
-char **cmap(t_game *game)
+char	**cmap(t_game *game)
 {
-    int     i;
-    char    **cmap;
+	int	i;
+	char	**cmap;
 
-    i = 0;
-    cmap = malloc(sizeof(char *) * (game->line + 1));
-    while (game->map[i])
-    {
-        cmap[i] = ft_strdup(game->map[i]);
-        i++;
-    }
-    cmap[i] = NULL;
-    return (cmap);
+	i = 0;
+	cmap = malloc(sizeof(char *) * (game->line + 1));
+	while (game->map[i])
+	{
+		cmap[i] = ft_strdup(game->map[i]);
+		i++;
+	}
+	cmap[i] = NULL;
+	return (cmap);
 }

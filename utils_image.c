@@ -6,78 +6,79 @@
 /*   By: francflo <francflo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 13:30:31 by francflo          #+#    #+#             */
-/*   Updated: 2024/06/18 13:40:47 by francflo         ###   ########.fr       */
+/*   Updated: 2024/09/19 19:32:16 by francflo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-mlx_texture_t   *set_img_floor(t_game *game)
+mlx_texture_t	*set_img_floor(t_game *game)
 {
-    mlx_texture_t	*a_floor;
+	mlx_texture_t	*a_floor;
 
 	a_floor = mlx_load_png("./png/floor.png");
+
 	if (!a_floor)
-		error();
+		ft_error(game);
 	game->image->floor = mlx_texture_to_image(game->mlx, a_floor);
 	mlx_delete_texture(a_floor);
 	if (!game->image->floor)
-		error();
+		ft_error(game);
 	return (a_floor);
 }
 
-mlx_texture_t   *set_img_cols(t_game *game)
+mlx_texture_t	*set_img_cols(t_game *game)
 {
-    mlx_texture_t	*a_cols;
+	mlx_texture_t	*a_cols;
 
 	a_cols = mlx_load_png("./png/cols.png");
 	if (!a_cols)
-		error();
+		ft_error(game);
 	game->image->cols = mlx_texture_to_image(game->mlx, a_cols);
 	mlx_delete_texture(a_cols);
 	if (!game->image->cols)
-		error();
+		ft_error(game);
 	return (a_cols);
 }
 
-mlx_texture_t   *set_img_door(t_game *game)
+mlx_texture_t	*set_img_door(t_game *game)
 {
-    mlx_texture_t	*a_door;
+	mlx_texture_t	*a_door;
 
 	a_door = mlx_load_png("./png/door.png");
 	if (!a_door)
-		error();
+		ft_error(game);
 	game->image->door = mlx_texture_to_image(game->mlx, a_door);
 	mlx_delete_texture(a_door);
 	if (!game->image->door)
-		error();
+		ft_error(game);
 	return (a_door);
 }
 
-mlx_texture_t   *set_img_coin(t_game *game)
+mlx_texture_t	*set_img_coin(t_game *game)
 {
-    mlx_texture_t	*a_coin;
+	mlx_texture_t	*a_coin;
 
 	a_coin = mlx_load_png("./png/coin.png");
 	if (!a_coin)
-		error();
+		ft_error(game);
 	game->image->coin = mlx_texture_to_image(game->mlx, a_coin);
 	mlx_delete_texture(a_coin);
 	if (!game->image->coin)
-		error();
+		ft_error(game);
 	return (a_coin);
 }
 
-mlx_texture_t   *set_img_hero(t_game *game)
+mlx_texture_t	*set_img_hero(t_game *game)
 {
-    mlx_texture_t	*a_hero;
+	mlx_texture_t	*a_hero;
 
 	a_hero = mlx_load_png("./png/hero.png");
 	if (!a_hero)
-		error();
+		ft_error(game);
 	game->image->hero = mlx_texture_to_image(game->mlx, a_hero);
 	mlx_delete_texture(a_hero);
 	if (!game->image->hero)
-		error();
+		ft_error(game);
 	return (a_hero);
 }

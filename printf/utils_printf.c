@@ -12,17 +12,18 @@
 
 #include "../so_long.h"
 
-char *tipe_finder(char c)
+char	*tipe_finder(char c)
 {
-    char    *p;
-    p = "csdi%";
-    while (*p != '\0')
-    {
-        if (*p == c)
-            return (p);
-        p++;
-    }
-    return (0);
+	char	*p;
+
+	p = "csdi%";
+	while (*p != '\0')
+	{
+		if (*p == c)
+			return (p);
+		p++;
+	}
+	return (0);
 }
 
 int	putstr_c(char *s)

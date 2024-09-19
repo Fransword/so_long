@@ -12,46 +12,46 @@
 
 #include "so_long.h"
 
-void freemap(char **map)
+void	freemap(char **map)
 {
-    int     i;
+	int	i;
 
-    i = 0;
-    while (map[i])
-    {
-        free(map[i]);
-        i++;
-    }
-    free(map);
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
 }
 
-void end(t_game *game)
+void	end(t_game *game)
 {
-    freemap(game->map);
-    mlx_terminate(game->mlx);
-    exit(0);
+	freemap(game->map);
+	mlx_terminate(game->mlx);
+	exit(0);
 }
 
-mlx_texture_t *set_img_exit(t_game *game)
+mlx_texture_t	*set_img_exit(t_game *game)
 {
-    mlx_texture_t *a_exit;
+	mlx_texture_t	*a_exit;
 
-    a_exit = mlx_load_png("./textures/exit.png");
-    if (!a_exit)
-        error();
-    game->image->exit = mlx_texture_to_image(game->mlx, a_exit);
-    mlx_delete_texture(a_exit);
-    if (!game->image->exit)
-        error();
-    return (a_exit);
+	a_exit = mlx_load_png("./png/exit.png");
+	if (!a_exit)
+		ft_error(game);
+	game->image->exit = mlx_texture_to_image(game->mlx, a_exit);
+	mlx_delete_texture(a_exit);
+	if (!game->image->exit)
+		ft_error(game);
+	return (a_exit);
 }
 
-void set_images(t_game *game)
+void	set_images(t_game *game)
 {
-    set_img_floor(game);
-    set_img_cols(game);
-    set_img_door(game);
-    set_img_coin(game);
-    set_img_hero(game);
-    set_img_exit(game);
+	set_img_floor(game);
+	set_img_cols(game);
+	set_img_door(game);
+	set_img_coin(game);
+	set_img_hero(game);
+	set_img_exit(game);
 }

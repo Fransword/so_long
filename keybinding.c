@@ -12,12 +12,12 @@
 
 #include "so_long.h"
 
-void press_w(t_game *game)
+void	press_w(t_game *game)
 {
 	if (game->map[game->playery - 1][game->playerx] != '1')
 	{
 		if (game->map[game->playery][game->playerx] == 'E')
-			mlx_image_to_window(game->mlx, game->image->exit,
+			mlx_image_to_window(game->mlx, game->image->door,
 				game->playerx * PIXEL, game->playery * PIXEL);
 		else
 			mlx_image_to_window(game->mlx, game->image->floor,
@@ -40,14 +40,14 @@ void press_w(t_game *game)
 	}
 }
 
-void press_a(t_game *game)
+void	press_a(t_game *game)
 {
 	if (game->map[game->playery][game->playerx - 1] != '1')
 	{
 		if (game->map[game->playery][game->playerx - 1] != '1')
 		{
 			if (game->map[game->playery][game->playerx] == 'E')
-				mlx_image_to_window(game->mlx, game->image->exit,
+				mlx_image_to_window(game->mlx, game->image->door,
 					game->playerx * PIXEL, game->playery * PIXEL);
 			else
 				mlx_image_to_window(game->mlx, game->image->floor,
@@ -72,12 +72,12 @@ void press_a(t_game *game)
 	}
 }
 
-void press_s(t_game *game)
+void	press_s(t_game *game)
 {
 	if (game->map[game->playery + 1][game->playerx] != '1')
 	{
 		if (game->map[game->playery][game->playerx] == 'E')
-			mlx_image_to_window(game->mlx, game->image->exit,
+			mlx_image_to_window(game->mlx, game->image->door,
 				game->playerx * PIXEL, game->playery * PIXEL);
 		else
 			mlx_image_to_window(game->mlx, game->image->floor,
@@ -100,12 +100,12 @@ void press_s(t_game *game)
 	}
 }
 
-void press_d(t_game *game)
+void	press_d(t_game *game)
 {
 	if (game->map[game->playery][game->playerx + 1] != '1')
 	{
 		if (game->map[game->playery][game->playerx] == 'E')
-			mlx_image_to_window(game->mlx, game->image->exit,
+			mlx_image_to_window(game->mlx, game->image->door,
 				game->playerx * PIXEL, game->playery * PIXEL);
 		else
 			mlx_image_to_window(game->mlx, game->image->floor,
@@ -128,7 +128,7 @@ void press_d(t_game *game)
 	}
 }
 
-void keybinding(mlx_key_data_t keydata, void *param)
+void	keybinding(mlx_key_data_t keydata, void *param)
 {
 	t_game	*game;
 
