@@ -112,22 +112,19 @@ int	check_char(t_game *game)
 int	check_map(t_game *game)
 {
 	check_char(game);
-	write (1, "1", 1);
 	check_cols(game);
-	write (1, "2", 1);
 	check_hd(game);
-	write (1, "3", 1);
 	game->coin = check_coin(game);
 	windwalk(game);
-	write (1, "4", 1);
 	return (1);
 }
 
 void	printmap(t_game *game)
 {
-	int	i = 0;
+	int	i;
 
-	while(game->map[i])
+	i = 0;
+	while (game->map[i])
 	{
 		printf("%s\n", game->map[i]);
 		i++;

@@ -89,7 +89,8 @@ int	main(int argc, char **argv)
 	game->cols = strlen2(game->map[0]);
 	set_xy(game);
 	check_map(game);
-	game->mlx = mlx_init(game->cols * PIXEL, game->line * PIXEL, "so_long", false);
+	game->mlx = mlx_init(game->cols * PIXEL,
+			game->line * PIXEL, "so_long", false);
 	game->image = malloc(sizeof(t_image));
 	if (!game->image)
 		return (0);

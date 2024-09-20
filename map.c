@@ -45,7 +45,8 @@ void	print_map(t_game *game)
 		}
 		i++;
 	}
-	mlx_image_to_window(game->mlx, game->image->hero, game->playerx * PIXEL, game->playery * PIXEL);
+	mlx_image_to_window(game->mlx, game->image->hero,
+		game->playerx * PIXEL, game->playery * PIXEL);
 }
 
 static void	fill(char **map, int line, int cols)
@@ -78,7 +79,7 @@ int	windwalk(t_game *game)
 		{
 			if (copium[i][j] == 'c' || copium[i][j] == 'E')
 				//ft_error(game);
-			exit(0);
+				exit(0);
 			j++;
 		}
 		i++;

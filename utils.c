@@ -40,6 +40,7 @@ int	strlen2(char *argv)
 	}
 	return (i);
 }
+
 void	set_xy(t_game *game)
 {
 	int	i;
