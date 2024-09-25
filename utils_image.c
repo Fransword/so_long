@@ -6,7 +6,7 @@
 /*   By: francflo <francflo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 13:30:31 by francflo          #+#    #+#             */
-/*   Updated: 2024/09/20 12:43:01 by francflo         ###   ########.fr       */
+/*   Updated: 2024/09/25 19:00:15 by francflo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ mlx_texture_t	*set_img_floor(t_game *game)
 	mlx_texture_t	*a_floor;
 
 	a_floor = mlx_load_png("./png/floor.png");
-
 	if (!a_floor)
 		ft_error(game);
 	game->image->floor = mlx_texture_to_image(game->mlx, a_floor);

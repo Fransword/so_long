@@ -15,7 +15,10 @@
 void	ft_error(t_game *game)
 {
 	write(1, "ERROR\n", 6);
-	freemap(game->map);
+	if (game && game->map)
+		freemap(game->map);
+	if (game)
+		free(game);
 	exit(1);
 }
 
@@ -47,7 +50,6 @@ char	**open_map(char *argv, int line)
 
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
-		//ft_error(game);
 		exit(0);
 	map = malloc((sizeof(char *)) * (line + 1));
 	if (!map)
@@ -62,7 +64,6 @@ char	**open_map(char *argv, int line)
 				free(map[i]);
 			free(map);
 			close(fd);
-			//ft_error(game);
 			exit(0);
 		}
 		i++;
@@ -72,12 +73,12 @@ char	**open_map(char *argv, int line)
 	return (map);
 }
 
-int	main(int argc, char **argv)
+/*int	main(int argc, char **argv)				TRY 1
 {
 	t_game	*game;
 
 	if (argc != 2 || (ft_strncmp(".ber", &argv[1][strlen2(argv[1]) - 4], 4)))
-		ft_error(game);
+		ft_error(NULL);
 	game = malloc(sizeof(t_game));
 	if (!game)
 		return (0);
@@ -93,7 +94,7 @@ int	main(int argc, char **argv)
 			game->line * PIXEL, "so_long", false);
 	game->image = malloc(sizeof(t_image));
 	if (!game->image)
-		return (0);
+		ft_error(game);
 	set_images(game);
 	print_map(game);
 	mlx_key_hook(game->mlx, &keybinding, game);
@@ -101,4 +102,61 @@ int	main(int argc, char **argv)
 	free(game->image);
 	free(game);
 	return (0);
-}
+}*/
+
+/*int	main(int argc, char **argv)				TRY 2
+{
+	t_game	*game;
+
+	if (argc != 2 || ft_strncmp(".ber", &argv[1][strlen2(argv[1]) - 4], 4))
+		ft_error(NULL);
+	game = malloc(sizeof(t_game));
+	if (!game || !(game->line = countx(argv[1])) || game->line == 0)
+		ft_error(game);
+	game->map = open_map(argv[1], game->line);
+	game->cols = strlen2(game->map[0]);
+	set_xy(game);
+	check_map(game);
+	game->mlx = mlx_init(game->cols * PIXEL,
+			game->line * PIXEL, "so_long", false);
+	game->image = malloc(sizeof(t_image));
+	if (!game->image)
+		ft_error(game);
+	set_images(game);
+	print_map(game);
+	mlx_key_hook(game->mlx, &keybinding, game);
+	mlx_loop(game->mlx);
+	free(game->image);
+	free(game);
+	return (0);
+}*/
+
+/*int	main(int argc, char **argv)				TRY 3
+{
+	t_game	*game;
+
+	if (argc != 2 || ft_strncmp(".ber", &argv[1][strlen2(argv[1]) - 4], 4))
+		ft_error(NULL);
+	game = malloc(sizeof(t_game));
+	if (!game)
+		ft_error(NULL);
+	game->line = countx(argv[1]);
+	if (game->line == 0)
+		ft_error(game);
+	game->map = open_map(argv[1], game->line);
+	game->cols = strlen2(game->map[0]);
+	set_xy(game);
+	check_map(game);
+	game->mlx = mlx_init(game->cols * PIXEL,
+			game->line * PIXEL, "so_long", false);
+	game->image = malloc(sizeof(t_image));
+	if (!game->image)
+		ft_error(game);
+	set_images(game);
+	print_map(game);
+	mlx_key_hook(game->mlx, &keybinding, game);
+	mlx_loop(game->mlx);
+	free(game->image);
+	free(game);
+	return (0);
+}*/

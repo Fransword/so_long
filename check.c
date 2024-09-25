@@ -93,7 +93,7 @@ int	check_char(t_game *game)
 	int	j;
 
 	i = 0;
-	while (game->map[i] != '\0')
+	while (game->map[i] && game->map[i][j] != '\0')
 	{
 		j = 0;
 		while (game->map[i][j] != '\n' && game->map[i][j] != '\0')
@@ -117,16 +117,4 @@ int	check_map(t_game *game)
 	game->coin = check_coin(game);
 	windwalk(game);
 	return (1);
-}
-
-void	printmap(t_game *game)
-{
-	int	i;
-
-	i = 0;
-	while (game->map[i])
-	{
-		printf("%s\n", game->map[i]);
-		i++;
-	}
 }

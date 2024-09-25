@@ -55,3 +55,15 @@ void	set_images(t_game *game)
 	set_img_hero(game);
 	set_img_exit(game);
 }
+
+void	printmap(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (game->map[i])
+	{
+		printf("%s\n", game->map[i]);
+		i++;
+	}
+}

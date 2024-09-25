@@ -64,8 +64,8 @@ static void	fill(char **map, int line, int cols)
 
 int	windwalk(t_game *game)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	**copium;
 
 	copium = cmap(game);
@@ -77,8 +77,7 @@ int	windwalk(t_game *game)
 		j = 0;
 		while (copium[i][j] != '\n' && copium[i][j] != '\0')
 		{
-			if (copium[i][j] == 'c' || copium[i][j] == 'E')
-				//ft_error(game);
+			if (copium[i][j] == 'C' || copium[i][j] == 'E')
 				exit(0);
 			j++;
 		}

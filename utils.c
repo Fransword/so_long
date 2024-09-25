@@ -95,7 +95,7 @@ char	*ft_strdup(const char *s1)
 
 char	**cmap(t_game *game)
 {
-	int	i;
+	int		i;
 	char	**cmap;
 
 	i = 0;
