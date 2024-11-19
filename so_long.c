@@ -73,7 +73,7 @@ char	**open_map(char *argv, int line)
 	return (map);
 }
 
-/*int	main(int argc, char **argv)				TRY 1
+int	main(int argc, char **argv)
 {
 	t_game	*game;
 
@@ -102,7 +102,7 @@ char	**open_map(char *argv, int line)
 	free(game->image);
 	free(game);
 	return (0);
-}*/
+}
 
 /*int	main(int argc, char **argv)				TRY 2
 {
