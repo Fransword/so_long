@@ -1,5 +1,5 @@
 NAME	:= so_long
-CFLAGS	:= -g -Wextra -Wall -Werror -Wunreachable-code -fsanitize=address
+CFLAGS	:= -g -Wextra -Wall -Werror 
 MLX_DIR	= ./MLX42
 MLX	:= $(MLX_DIR)/libmlx42.a
 HEADERS	:= -I$(MLX_DIR)

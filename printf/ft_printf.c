@@ -30,7 +30,7 @@ int	print(char c, va_list args)
 
 int	ft_printf(const char *format, ...)
 {
-	va_list	args;
+	va_list			args;
 	unsigned int	i;
 	unsigned int	j;
 	int				k;
