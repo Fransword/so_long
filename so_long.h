@@ -97,10 +97,6 @@ int			putnbr_c(int n);
 void		keybinding(mlx_key_data_t keydata, void *param);
 static void	char_to_image(t_game *game, int i, int j);
 void		print_map(t_game *game);
-/*mlx_texture_t	*set_img_floor(t_game *game);
-mlx_texture_t	*set_img_cols(t_game *game);
-mlx_texture_t	*set_img_door(t_game *game);
-mlx_texture_t	*set_img_coin(t_game *game);
-mlx_texture_t	*set_img_hero(t_game *game);*/
+void		auxmain(t_game *game);
 
 #endif

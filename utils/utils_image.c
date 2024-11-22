@@ -6,11 +6,11 @@
 /*   By: francflo <francflo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 13:30:31 by francflo          #+#    #+#             */
-/*   Updated: 2024/09/25 19:24:46 by francflo         ###   ########.fr       */
+/*   Updated: 2024/11/20 19:00:15 by francflo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 mlx_texture_t	*set_img_floor(t_game *game)
 {

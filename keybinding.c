@@ -44,31 +44,28 @@ void	press_a(t_game *game)
 {
 	if (game->map[game->playery][game->playerx - 1] != '1')
 	{
-		if (game->map[game->playery][game->playerx - 1] != '1')
-		{
-			if (game->map[game->playery][game->playerx] == 'E')
-				mlx_image_to_window(game->mlx, game->image->door,
-					game->playerx * PIXEL, game->playery * PIXEL);
-			else
-				mlx_image_to_window(game->mlx, game->image->floor,
-					game->playerx * PIXEL, game->playery * PIXEL);
-			game->playerx --;
-			mlx_image_to_window(game->mlx, game->image->hero,
+		if (game->map[game->playery][game->playerx] == 'E')
+			mlx_image_to_window(game->mlx, game->image->door,
 				game->playerx * PIXEL, game->playery * PIXEL);
-			game->count++;
-			ft_printf("count: %i\n", game->count);
-			if (game->map[game->playery][game->playerx] == 'C')
-			{
-				game->coin--;
-				game->map[game->playery][game->playerx] = '0';
-				if (game->coin == 0)
-					mlx_image_to_window(game->mlx, game->image->exit,
-						game->doory * PIXEL, game->doorx * PIXEL);
-			}
-			if (game->map[game->playery][game->playerx] == 'E'
-			&& game->coin == 0)
-				end(game);
+		else
+			mlx_image_to_window(game->mlx, game->image->floor,
+				game->playerx * PIXEL, game->playery * PIXEL);
+		game->playerx --;
+		mlx_image_to_window(game->mlx, game->image->hero,
+			game->playerx * PIXEL, game->playery * PIXEL);
+		game->count++;
+		ft_printf("count: %i\n", game->count);
+		if (game->map[game->playery][game->playerx] == 'C')
+		{
+			game->coin--;
+			game->map[game->playery][game->playerx] = '0';
+			if (game->coin == 0)
+				mlx_image_to_window(game->mlx, game->image->exit,
+					game->doory * PIXEL, game->doorx * PIXEL);
 		}
+		if (game->map[game->playery][game->playerx] == 'E'
+		&& game->coin == 0)
+			end(game);
 	}
 }
 
